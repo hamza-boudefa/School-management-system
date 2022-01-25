@@ -31,11 +31,11 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hamza-boudefa/project.git"
+    "url": "git+https://github.com/hamza-boudefa/new.git"
   },
   "bugs": {
-    "url": "https://github.com/hamza-boudefa/project/issues"
+    "url": "https://github.com/hamza-boudefa/new/issues"
   },
-  "homepage": "https://github.com/hamza-boudefa/project#readme",
+  "homepage": "https://github.com/hamza-boudefa/new#readme",
   "description": ""
 }

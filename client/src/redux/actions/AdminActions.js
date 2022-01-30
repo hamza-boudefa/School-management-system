@@ -42,7 +42,7 @@ export const login = (userCred) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
     const { data } = await axios.post(
-      `http://localhost:4001/${userCred.role}/login`,
+      `https://my-school-ms.herokuapp.com/${userCred.role}/login`,
       userCred
     );
     localStorage.setItem("cred", JSON.stringify(data));
@@ -55,7 +55,7 @@ export const login = (userCred) => async (dispatch) => {
 //   try {
 //     dispatch({ type: LOGIN_REQUEST });
 //     const { data } = await axios.post(
-//       "http://localhost:4001/adminAPI/login",
+//       "https://my-school-ms.herokuapp.com/adminAPI/login",
 //       userCred
 //     );
 //     localStorage.setItem("cred", JSON.stringify(data));
@@ -75,7 +75,7 @@ export const lougout = () => (dispatch) => {
 export const getTeachersList = () => async (dispatch) => {
   try {
     dispatch({ type: GET_TEACHERS_LIST_REQUEST });
-    const { data } = await axios.get("http://localhost:4001/teacherAPI/");
+    const { data } = await axios.get("https://my-school-ms.herokuapp.com/teacherAPI/");
     dispatch({ type: GET_TEACHERS_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_TEACHERS_LIST_FAIL });
@@ -87,7 +87,7 @@ export const getStudentList = () => async (dispatch) => {
   try {
     dispatch({ type: GET_STUDENT_LIST_REQUEST });
     const { data } = await axios.get(
-      "http://localhost:4001/studentAPI/getStudentsList"
+      "https://my-school-ms.herokuapp.com/studentAPI/getStudentsList"
     );
     dispatch({ type: GET_STUDENT_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -99,7 +99,7 @@ export const getStudentList = () => async (dispatch) => {
 // export const getAdmin=(id)=>async(dispatch)=>{
 //     try {
 //         dispatch({type:GET_ADMIN_REQUEST})
-//         const {data}= await axios.get(`http://localhost:4001/adminAPI/getAdmin/${id}`)
+//         const {data}= await axios.get(`https://my-school-ms.herokuapp.com/adminAPI/getAdmin/${id}`)
 //         dispatch({type:GET_ADMIN_SUCCESS,payload:data})
 
 //     } catch (error) {
@@ -115,7 +115,7 @@ export const addClass = (newClass) => async (dispatch) => {
     // dispatch({type:ADD_CLASS_REQUEST})
 
     const { data } = await axios.post(
-      "http://localhost:4001/classAPI/addClasse",
+      "https://my-school-ms.herokuapp.com/classAPI/addClasse",
       newClass
     );
     dispatch({ type: ADD_CLASS_SUCCESS, payload: data });
@@ -131,7 +131,7 @@ export const deleteClass = (id) => async (dispatch, getState) => {
     const { getClass } = getState();
 
     const { data } = await axios.delete(
-      `http://localhost:4001/classAPI/deleteClasse/${id}`
+      `https://my-school-ms.herokuapp.com/classAPI/deleteClasse/${id}`
     );
     dispatch({ type: DELETE_CLASS_SUCCESS, payload: data });
   } catch (error) {
@@ -144,7 +144,7 @@ export const getClassList = () => async (dispatch) => {
   try {
     dispatch({ type: GET_CLASS_LIST_SUCCESS });
     const { data } = await axios.get(
-      "http://localhost:4001/classAPI/getClassesList"
+      "https://my-school-ms.herokuapp.com/classAPI/getClassesList"
     );
     dispatch({ type: GET_CLASS_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -158,7 +158,7 @@ export const addStudent = (newStudent) => async (dispatch) => {
     dispatch({ type: ADD_STUDENT_REQUEST });
 
     const { data } = await axios.post(
-      "http://localhost:4001/studentAPI/addStudent",
+      "https://my-school-ms.herokuapp.com/studentAPI/addStudent",
       newStudent
     );
     dispatch({ type: ADD_STUDENT_SUCCESS, payload: data });
@@ -176,7 +176,7 @@ export const addTeacher = (newTeacher) => async (dispatch, getState) => {
     } = getState();
     const config = { headers: { auth: userInfo.token } };
     const { data } = await axios.post(
-      "http://localhost:4001/teacherAPI/addNewTeacher",
+      "https://my-school-ms.herokuapp.com/teacherAPI/addNewTeacher",
       newTeacher,
       config
     );
@@ -196,7 +196,7 @@ export const deleteTeacher = (id) => async (dispatch, getState) => {
     const config = { headers: { auth: userInfo.token } };
 
     const { data } = await axios.delete(
-      `http://localhost:4001/teacherAPI/${id}`,
+      `https://my-school-ms.herokuapp.com/teacherAPI/${id}`,
       config
     );
     dispatch({ type: DELETE_TEACHER_SUCCESS, payload: data });
@@ -215,7 +215,7 @@ export const deleteStudent = (id) => async (dispatch, getState) => {
     const config = { headers: { auth: userInfo.token } };
 
     const { data } = await axios.delete(
-      `http://localhost:4001/studentAPI/deleteStudent/${id}`,
+      `https://my-school-ms.herokuapp.com/studentAPI/deleteStudent/${id}`,
       config
     );
     dispatch({ type: DELETE_STUDENT_SUCCESS, payload: data });
@@ -234,7 +234,7 @@ export const updateStudent = (id,newCred) => async (dispatch, getState) => {
     } = getState();
     const config = { headers: { auth: userInfo.token } };
     const { data } = await axios.put(
-      `http://localhost:4001/studentAPI/updateStudent/${id}`,
+      `https://my-school-ms.herokuapp.com/studentAPI/updateStudent/${id}`,
     newCred,config
     );
     dispatch({ type: UPDATE_STUDENT_SUCCESS, pyaload:data  });
@@ -254,7 +254,7 @@ export const updateTeacher = (id,newCred) => async (dispatch, getState) => {
     } = getState();
     const config = { headers: { auth: userInfo.token } };
     const { data } = await axios.put(
-      `http://localhost:4001/teacherAPI/updateTeacher/${id}`,
+      `https://my-school-ms.herokuapp.com/teacherAPI/updateTeacher/${id}`,
     newCred,config
     );
     dispatch({ type:UPDATE_TEACHER_SUCCESS, pyaload:data  });

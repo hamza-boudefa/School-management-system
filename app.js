@@ -11,7 +11,10 @@ const cors = require('cors')
 app.use(cors())
 
 
-
+app.use(express.static(path.join(_dirname,"/build")));
+app.get('/',(req,res)=>{
+    res.send(path.join(_dirname,"/build/index.html"))
+})
 
  
 app.use('/teacherAPI',require('./routes/teachersRoutes'))

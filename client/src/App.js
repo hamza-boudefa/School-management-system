@@ -15,7 +15,7 @@ import DashBoardAdmin from "./screens/adminView/DashBoardAdmin";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { userInfo } = useSelector((state) => state.loginDetails);
+  const { userInfo } = useSelector((state) => state.loginDetails);  
 
   return (
     <div>
@@ -25,7 +25,7 @@ function App() {
         {userInfo && userInfo.adminId ? (
           <Route path="/DashBoard/:id" element={<DashBoardAdmin />} />
         ) : (
-          <Route path="/DashBoard/StudentList" element={<StdDashboard />} />
+          <Route path="/DashBoard/StudentList" element={<StdDashboard />} /> 
         )}
 
         <Route path="/DashBoard/TeacherList" element={<DashBoredTeacher />} />

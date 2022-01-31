@@ -5,7 +5,7 @@ import {TEACHER_LOGIN_REQUEST,TEACHER_LOGIN_SUCCESS,TEACHER_LOGIN_FAIL,TEACHER_L
 //     try {
 //       dispatch({ type: TEACHER_LOGIN_REQUEST });
 //       const { data } = await axios.post(
-//         `https://my-school-ms.herokuapp.com/${userCred.role}/login`,
+//         `https://localhost:4001/${userCred.role}/login`,
 //         userCred
 //       );
 //       localStorage.setItem("cred", JSON.stringify(data));
@@ -23,7 +23,7 @@ import {TEACHER_LOGIN_REQUEST,TEACHER_LOGIN_SUCCESS,TEACHER_LOGIN_FAIL,TEACHER_L
 export const addPost=(newPost)=>async(dispatch)=>{
     try {
         const { data } = await axios.post(
-            "https://my-school-ms.herokuapp.com/postAPI/addPost",newPost
+            "https://localhost:4001/postAPI/addPost",newPost
           );
           dispatch({ type: ADD_POST_SUCCESS, payload: data });
         

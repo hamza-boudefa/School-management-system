@@ -23,7 +23,7 @@ import {TEACHER_LOGIN_REQUEST,TEACHER_LOGIN_SUCCESS,TEACHER_LOGIN_FAIL,TEACHER_L
 export const addPost=(newPost)=>async(dispatch)=>{
     try {
         const { data } = await axios.post(
-            "http://localhost:4001/postAPI/addPost",newPost
+            "https://my-school-ms.herokuapp.com/postAPI/addPost",newPost
           );
           dispatch({ type: ADD_POST_SUCCESS, payload: data });
         

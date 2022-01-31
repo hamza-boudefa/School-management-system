@@ -5,7 +5,7 @@ export const Studentlogin = (studentCred) => async (dispatch) => {
     try {
       dispatch({ type: STUDENT_LOGIN_REQUEST });
       const { data } = await axios.post(
-        "http://localhost:4001/studentAPI/logIn",
+        "https://my-school-ms.herokuapp.com/studentAPI/logIn",
         studentCred
       );
       localStorage.setItem("cred", JSON.stringify(data));
@@ -24,7 +24,7 @@ export const Studentlogin = (studentCred) => async (dispatch) => {
 export const getOneStuden=(id)=>async(dispatch)=>{
   try {
     dispatch({type:GET_STUDENT_REQUEST})
-        const {data}= await axios.get(`http://localhost:4001/studentAPI/getStudent/${id}`)
+        const {data}= await axios.get(`https://my-school-ms.herokuapp.com/studentAPI/getStudent/${id}`)
         dispatch({type:GET_STUDENT_SUCCESS,payload:data})
 
     

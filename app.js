@@ -11,10 +11,7 @@ const cors = require('cors')
 app.use(cors())
 
 
-app.use(express.static(path.join(_dirname,"/build")));
-app.get('/',(req,res)=>{
-    res.send(path.join(_dirname,"/build/index.html"))
-})
+
 
  
 app.use('/teacherAPI',require('./routes/teachersRoutes'))
@@ -31,6 +28,11 @@ app.use('/classAPI', require('./routes/classesRoutes'))
 
 connectdb()
 const port=(process.env.port) || 4001
+
+app.use(express.static(path.join(_dirname,"client/build")));
+app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(_dirname,"client",'build', 'index.html'))
+})
 
 
 app.listen(port,()=>console.log(`port listing on ${port}`))

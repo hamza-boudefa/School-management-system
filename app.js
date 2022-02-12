@@ -10,7 +10,8 @@ const cors = require('cors')
 
 app.use(cors())
 
-
+connectdb()
+const port=(process.env.port) || 4001
 
 
  
@@ -26,8 +27,7 @@ app.use('/classAPI', require('./routes/classesRoutes'))
 
 
 
-connectdb()
-const port=(process.env.port) || 4001
+
 
 if ((process.env.NODE_ENV = "production")) {
     app.use(express.static("client/build"));
